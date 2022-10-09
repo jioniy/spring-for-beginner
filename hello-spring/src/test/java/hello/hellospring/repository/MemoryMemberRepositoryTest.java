@@ -8,6 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 public class MemoryMemberRepositoryTest {
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
@@ -52,6 +53,7 @@ public class MemoryMemberRepositoryTest {
         assertThat(result).isEqualTo(member1);
     }
 
+    @Test
     public void findAll(){
         //given
         Member member1 = new Member();
