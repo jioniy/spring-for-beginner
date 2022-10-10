@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>이름</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr th:each="member : ${members}"><!--model의 attribute값("members")을 찾아서 가져온다-->
+          <td th:text="${member.id}"></td><!--Member의 getId(), getName()을 사용하여 가져온다.-->
+          <td th:text="${member.name}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
