@@ -37,7 +37,7 @@ dependencies{
 }
 ```
 
-<br/>
+<br/><br/>
 
 ### ✏ 라이브러리
 - **spring-boot-starter-web**
@@ -50,11 +50,11 @@ dependencies{
 - **spring-boot-starter-thymeleaf** : 타임리프 템플릿 엔진(View)
 - **spring-boot-starter**(공통): 스프링 부트 + 스프링 코어 + 로깅
     
-    ```coffeescript
+    ```java
     |- spring-boot
-    		|- spring-core
+    	|- spring-core
     |- spring-boot-starter-logging
-    		|- logback, slf4j
+    	|- logback, slf4j
     ```
     
 - **spring-boot-starter-test**
@@ -63,13 +63,13 @@ dependencies{
     |- junit : 테스트 프레임워크
     |- mockito : 목 라이브러리
     |- assertj : 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리 
-    							ex) Assertions.assertThat()
+    		ex) Assertions.assertThat()
     |- spring-test : 스프링 통합 테스트 지원
     ```
     
     실무에서는 error를 더 빨리 잡기 위해 System.out.println()보다 log를 더 많이 사용한다.
 
-<br/>
+<br/><br/>
 
 ### ✏ 동작 환경
 - Controller에서 리턴 값으로 문자를 반환하면 viewResolver가 찾아서 리턴한다.
@@ -78,7 +78,7 @@ dependencies{
 <p align="center"><img src="https://user-images.githubusercontent.com/68148196/194913024-cd20b5fa-8ee3-4d1a-b4de-156287f9e002.png" width="500" height="280"/></p>
 
 
-<br/>
+<br/><br/>
 
 ### ✏ 빌드하고 실행하기
 - 콘솔로 이동
@@ -88,3 +88,5 @@ dependencies{
 cd build/libs
 java -jar hello-spring-0.0.1-SNAPSHOT.jar --> jar파일 실행
 ```
+
+<br/><br/>
