@@ -1,14 +1,12 @@
 package hello.hellospring;
 
-import hello.hellospring.repository.JdbcMemberRepository;
-import hello.hellospring.repository.JdbcTemplateMemberRepository;
-import hello.hellospring.repository.MemberRepository;
-import hello.hellospring.repository.MemoryMemberRepository;
+import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 /**
@@ -23,12 +21,13 @@ public class SpringConfig {
      */
     //1. @Autowired DataSource dataSource;
     //2.
-    private DataSource dataSource;
+    private final EntityManager em;
 
     @Autowired
-    public SpringConfig(DataSource dataSource){
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager em){
+        this.em = em;
     }
+
     @Bean
     public MemberService memberService(){
         return new MemberService(memberRepository());
@@ -36,13 +35,14 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository(){
-        // return new MemoryMemberRepository();
         /**
          * repository 교체 - 다형성의 활용
          * 인터페이스를 두고 구현체를 바꾸기 - Dependency Injection
          * 이 기능을 극대화 시켜주는 것이 Spring의 장점이다.
          * */
+        // return new MemoryMemberRepository();
         //return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+        //return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }
