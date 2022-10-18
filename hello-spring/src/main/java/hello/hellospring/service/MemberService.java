@@ -13,6 +13,7 @@ import java.util.Optional;
  *     - JPA의 모든 데이터 변경은 트랜잭션 안에서 실행해야한다.
  *     - 스프링은 해당 클래스의 메서드를 실행할 때 트랜잭션을 시작하고, 메서드가 정상 종료되면 트랜잭션을 커밋한다. 만약 런타임 예외가 발생하면 롤백한다.
  * AOP가 필요한 상황 - 회원 조회 시간 측정
+ * AOP 적용 - 함수 호출될 때마다 TimeTraceAop를 실행
  * */
 @Transactional
 public class MemberService {
@@ -33,18 +34,9 @@ public class MemberService {
      * 회원가입
      */
     public Long join(Member member) {
-        long start = System.currentTimeMillis();
-
-        try{
-            validateDuplicateMember(member); //중복 회원 검증
-            memberRepository.save(member);
-            return member.getId();
-        }finally{
-            long finish = System.currentTimeMillis();
-            long timeMs = finish - start;
-            System.out.println("join "+timeMs+"ms");
-        }
-
+        validateDuplicateMember(member); //중복 회원 검증
+        memberRepository.save(member);
+        return member.getId();
     }
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
@@ -57,15 +49,7 @@ public class MemberService {
      * 전체 회원 조회
      */
     public List<Member> findMembers() {
-        long start = System.currentTimeMillis();
-
-        try{
-            return memberRepository.findAll();
-        }finally{
-            long finish = System.currentTimeMillis();
-            long timeMs = finish - start;
-            System.out.println("findMembers "+timeMs+"ms");
-        }
+        return memberRepository.findAll();
     }
     public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
