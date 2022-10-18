@@ -1,10 +1,12 @@
 package hello.hellospring;
 
-import hello.hellospring.repository.MemberRepository;
-import hello.hellospring.repository.MemoryMemberRepository;
+import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.persistence.EntityManager;
 
 /**
  * Component 스캔 방식 대신에 자바 코드로 스프링 빈을 직접 등록
@@ -12,13 +14,20 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class SpringConfig {
-    @Bean
-    public MemberService memberService(){
-        return new MemberService(memberRepository());
+
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository){
+        /**
+         * Spring Data JPA가 SpringDataJpaRepository를 스프링 빈으로 자동 등록 해준다.
+         */
+        this.memberRepository = memberRepository;
     }
 
     @Bean
-    public MemberRepository memberRepository(){
-        return new MemoryMemberRepository();
+    public MemberService memberService(){
+        return new MemberService(memberRepository);
     }
+
 }
