@@ -2,7 +2,7 @@
 
 ### [👩‍🏫 스프링 입문 ](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%9E%85%EB%AC%B8-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8/dashboard)- 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술 
 
-#### 📝 챕터별 필기 README
+#### 📝 챕터별 코드 & 필기(README)
 
   [1. 프로젝트 환경 설정](https://github.com/jioniy/spring-for-beginner/tree/section%231)
 
