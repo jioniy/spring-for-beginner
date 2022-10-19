@@ -15,7 +15,7 @@
 
     : 데이터베이스 커넥션을 획득할 때 사용하는 객체
 
-    : 스프링부트는 <b>데이터베이스 커넥션 정보*</b>를 바탕으로 <b>DataSource를 생성하고 스프링 빈으로</b> 만들어둔다. 
+    : 스프링부트는 <b>데이터베이스 커넥션 정보</b>를 바탕으로 <b>DataSource를 생성하고 스프링 빈으로</b> 만들어둔다. 
     → SpringConfig에서 <b>DI 적용</b> 가능 
 
 <p align="center"><img src="https://user-images.githubusercontent.com/68148196/196693575-1b6c9311-aa37-4f85-9bad-44bb6dcfc87b.JPG" width="500" height="280"/></p>
