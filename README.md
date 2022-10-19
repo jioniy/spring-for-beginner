@@ -192,7 +192,7 @@ public class SpringConfig {
   - 메서드 호출만으로 query수행 → <b>생산성이 매우 높아짐</b>
   
   - <b>query가 복잡해지면 ORM으로 표현하는데 한계</b>가 있고, 성능이 raw query에 비해 느리다는 단점
-  →  <b>JPQL, QueryDSL 등을 사용<b>하거나 한 프로젝트 내에서 <b>Mybatis</b>와 JPA를 같이 사용
+  →  <b>JPQL, QueryDSL 등을 사용</b>하거나 한 프로젝트 내에서 <b>Mybatis</b>와 JPA를 같이 사용
 
 <br/>
    
